@@ -14,8 +14,7 @@ public class Assignment2_Log {
 	Response response;
 	@Given("Api for testing")
 	public void api_for_testing1() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	   
 		System.out.println("Given");
 		RestAssured.baseURI="https://reqres.in";	
 		request=given().header("content-type","application/json");
@@ -24,8 +23,7 @@ public class Assignment2_Log {
 
 	@When("Retrieve correct information")
 	public void retrieve_correct_information() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	   
 		System.out.println("When");
 		String path="api/users?page=2";
 		response=request.get(path).then().log().all().extract().response();
@@ -33,8 +31,7 @@ public class Assignment2_Log {
 
 	@Then("validate positive response code")
 	public void validate_positive_response_code() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	    
 		System.out.println("Then");
 		Assert.assertEquals(200, response.getStatusCode());
 	}

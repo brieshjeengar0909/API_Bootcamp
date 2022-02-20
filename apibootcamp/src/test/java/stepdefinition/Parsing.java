@@ -14,8 +14,7 @@ public class Parsing {
 	Response response;
 	@Given("API for testing Post register")
 	public void api_for_testing_post_register() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	   
 		System.out.println("Given");
 		RestAssured.baseURI="https://reqres.in";	
 		request=given().header("content-type","application/json").
@@ -27,8 +26,7 @@ public class Parsing {
 
 	@When("post with correct information")
 	public void post_with_correct_information() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	   
 		System.out.println("When");
 		String path="api/register";
 		response=request.post(path).then().log().all().extract().response();
@@ -36,8 +34,7 @@ public class Parsing {
 
 	@Then("validate positive response code received for successful register")
 	public void validate_positive_response_code_received_for_successful_register() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	    
 		System.out.println("Then");
 		Assert.assertEquals(200, response.getStatusCode());
 		
