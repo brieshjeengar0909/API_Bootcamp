@@ -14,8 +14,7 @@ public class Assertion {
 	
 	@Given("API for testing")
 	public void api_for_testing() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	    
 		System.out.println("Given");
 		RestAssured.baseURI="https://reqres.in";	
 		request=given().header("content-type","application/json").
@@ -28,8 +27,6 @@ public class Assertion {
 
 	@When("posted with correct information")
 	public void posted_with_correct_information() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
 		System.out.println("When");
 		String path="api/users";
 		response=request.post(path).then().log().all().extract().response();
@@ -38,15 +35,10 @@ public class Assertion {
 
 	@Then("validate positive response code received")
 	public void validate_positive_response_code_received() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
+	    
 		System.out.println("Then");
 		System.out.println("response status code : "+response.getStatusCode()); 
-		System.out.println("response status line : "+response.getStatusLine());
-		Assert.assertEquals("HTTP/1.1 201 Created", response.getStatusLine());
 		Assert.assertEquals(201, response.getStatusCode());
-		Assert.assertEquals("application/json; charset=utf-8", response.getContentType());
-		System.out.println("response content type : "+response.getContentType());
 	}
 
 }
